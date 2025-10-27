@@ -1,0 +1,33 @@
+.title kicad schematic
+
+.include NMOS-180nm.lib
+.include PMOS-180nm.lib
+v1 net-_v2-pad2_ gnd  dc 1.6
+v2 in1 net-_v2-pad2_  ac 990m 0
+m7 net-_i1-pad1_ net-_i1-pad1_ gnd gnd CMOSN W=6u L=0.5u M=1
+i1 net-_i1-pad1_ vdd  dc 20u
+m1 vdd net-_m1-pad2_ net-_m1-pad2_ vdd CMOSP W=7u L=0.5u M=1
+m4 net-_m1-pad2_ in1 net-_m4-pad3_ gnd CMOSN W=3u L=0.5u M=1
+v6 vdd gnd  dc 1.8
+m5 net-_m3-pad2_ in2 net-_m4-pad3_ gnd CMOSN W=3u L=0.5u M=1
+m2 vdd net-_m1-pad2_ net-_m3-pad2_ vdd CMOSP W=7u L=0.5u M=1
+m3 vdd net-_m3-pad2_ out out CMOSP W=87.04u L=0.5u M=1
+c1 net-_m3-pad2_ out 600f
+v4 net-_v3-pad1_ gnd  dc 1.6
+v3 net-_v3-pad1_ in2  ac 990m 0
+m6 out net-_i1-pad1_ gnd gnd CMOSN W=37.5u L=0.5u M=1
+* u1 out plot_phase
+c2 gnd out 2p
+m8 net-_m4-pad3_ net-_i1-pad1_ gnd gnd CMOSN W=6u L=0.5u M=1
+* u2 out plot_db
+.ac dec 50 10Hz 1GHz
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+plot phase(out)
+plot db(out)
+.endc
+.end

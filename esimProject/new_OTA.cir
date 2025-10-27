@@ -1,0 +1,20 @@
+.title KiCad schematic
+v1 Net-_v2-Pad2_ GND DC
+v2 in1 Net-_v2-Pad2_ AC
+M7 Net-_I1-Pad1_ Net-_I1-Pad1_ GND GND mosfet_n
+I1 Net-_I1-Pad1_ Vdd dc
+M1 Vdd Net-_M1-Pad2_ Net-_M1-Pad2_ Vdd mosfet_p
+M4 Net-_M1-Pad2_ in1 Net-_M4-Pad3_ GND mosfet_n
+v6 Vdd GND DC
+M5 Net-_M3-Pad2_ in2 Net-_M4-Pad3_ GND mosfet_n
+M2 Vdd Net-_M1-Pad2_ Net-_M3-Pad2_ Vdd mosfet_p
+M3 Vdd Net-_M3-Pad2_ out out mosfet_p
+C1 Net-_M3-Pad2_ out 600f
+v4 Net-_v3-Pad1_ GND DC
+v3 Net-_v3-Pad1_ in2 AC
+M6 out Net-_I1-Pad1_ GND GND mosfet_n
+U1 out plot_phase
+C2 GND out 2p
+M8 Net-_M4-Pad3_ Net-_I1-Pad1_ GND GND mosfet_n
+U2 out plot_db
+.end
